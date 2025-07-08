@@ -1,6 +1,6 @@
 $(document).ready(function() {
   function loadBookshelf() {
-    // Replace these with actual user ID and shelf ID if available
+    // this place is suppose to take the googlebook API ID's
     const userId = 'INSERT_USER_ID';
     const shelfId = 'INSERT_SHELF_ID';
     
