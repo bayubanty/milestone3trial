@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // Load bookshelf function
   function loadBookshelf() {
     // Replace these with actual user ID and shelf ID if available
     const userId = 'INSERT_USER_ID';
@@ -20,7 +19,6 @@ $(document).ready(function() {
     });
   }
 
-  // Render bookshelf
   function renderBookshelf(books) {
     $('#bookshelf').empty();
     
@@ -44,12 +42,14 @@ $(document).ready(function() {
     });
 
     // Add click handlers to bookshelf cards
-    $('.book-card').off('click').on('click', function() {
+    $('#bookshelf .book-card').click(function() {
       const bookId = $(this).data('id');
-      showBookDetails(bookId, 'bookshelf');
+      showBookDetails(bookId);
     });
   }
 
-  // Expose load function to app.js
-  window.loadBookshelf = loadBookshelf;
+  // Load bookshelf when the view is shown
+  $(document).on('viewShown', '#bookshelf-view', function() {
+    loadBookshelf();
+  });
 });
