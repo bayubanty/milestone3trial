@@ -2,20 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Google Books Search</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Books SPA</title>
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="js/googlebooks.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/books.js" defer></script>
+  <script src="js/bookshelf.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Google Books Search</h1>
-    <input type="text" id="searchInput" placeholder="Search for books..." />
-    <button id="searchBtn">Search</button>
+  <nav>
+    <a href="#search" class="nav-link active">Search</a>
+    <a href="#bookshelf" class="nav-link">My Bookshelf</a>
+  </nav>
 
-    <div id="bookResults"></div>
-    <div id="pagination"></div>
-    <div id="bookDetails"></div>
+  <div id="app-container">
+    <!-- Search View -->
+    <section id="search-view" class="view active">
+      <h1>Book Search</h1>
+      <div class="search-container">
+        <input type="text" id="searchTerm" placeholder="Search books...">
+        <button id="searchBtn">Search</button>
+      </div>
+      <div id="results" class="book-grid"></div>
+      <div id="pagination" class="pagination-container"></div>
+    </section>
+
+    <!-- Bookshelf View -->
+    <section id="bookshelf-view" class="view">
+      <h1>My Bookshelf</h1>
+      <div id="bookshelf" class="book-grid"></div>
+    </section>
+
+    <!-- Detail View (hidden by default) -->
+    <section id="detail-view" class="view">
+      <button id="backBtn">← Back to Results</button>
+      <div id="bookDetail"></div>
+    </section>
   </div>
 </body>
 </html>
