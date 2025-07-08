@@ -4,7 +4,6 @@ $(document).ready(function() {
   let currentPage = 1;
   let totalPages = 1;
 
-  // Search button click handler
   $('#searchBtn').click(function() {
     const query = $('#searchTerm').val().trim();
     if (query) {
@@ -14,7 +13,7 @@ $(document).ready(function() {
     }
   });
 
-  // Enter key handler
+  // Handle Enter key in search
   $('#searchTerm').keypress(function(e) {
     if (e.which === 13) {
       $('#searchBtn').click();
@@ -27,7 +26,6 @@ $(document).ready(function() {
     searchBooks(currentQuery, currentPage);
   });
 
-  // Search books function
   function searchBooks(query, page) {
     const startIndex = (page - 1) * resultsPerPage;
     const url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&startIndex=${startIndex}&maxResults=${resultsPerPage}`;
@@ -44,7 +42,6 @@ $(document).ready(function() {
     });
   }
 
-  // Render search results
   function renderResults(books) {
     $('#results').empty();
     
@@ -68,13 +65,12 @@ $(document).ready(function() {
     });
 
     // Add click handlers to book cards
-    $('.book-card').off('click').on('click', function() {
+    $('.book-card').click(function() {
       const bookId = $(this).data('id');
-      showBookDetails(bookId, 'search');
+      showBookDetails(bookId);
     });
   }
 
-  // Render pagination controls
   function renderPagination() {
     $('#pagination').empty();
     
