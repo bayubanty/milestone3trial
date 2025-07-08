@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  margin: 20px;
+}
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+input, button {
+  padding: 10px;
+  margin-top: 10px;
+}
+#bookResults, #pagination {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.book {
+  width: 150px;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+.book img {
+  width: 100px;
+}
+#bookDetails {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+.page-link {
+  margin: 0 5px;
+  cursor: pointer;
+}
+.page-link.active {
+  font-weight: bold;
+}
