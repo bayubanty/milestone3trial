@@ -1,6 +1,5 @@
 $(document).ready(function() {
   function loadBookshelf() {
-    // Replace these with actual user ID and shelf ID if available
     const userId = 'INSERT_USER_ID';
     const shelfId = 'INSERT_SHELF_ID';
     
@@ -8,9 +7,7 @@ $(document).ready(function() {
       $('#bookshelf').html('<p>Bookshelf not configured. Missing user ID or shelf ID.</p>');
       return;
     }
-
     const url = `https://www.googleapis.com/books/v1/users/${userId}/bookshelves/${shelfId}/volumes`;
-    
     $.getJSON(url, function(data) {
       const books = data.items || [];
       renderBookshelf(books);
@@ -18,7 +15,6 @@ $(document).ready(function() {
       $('#bookshelf').html('<p>Error loading bookshelf. Please try again later.</p>');
     });
   }
-
   function renderBookshelf(books) {
     $('#bookshelf').empty();
     
@@ -26,7 +22,6 @@ $(document).ready(function() {
       $('#bookshelf').html('<p>No books found in this bookshelf.</p>');
       return;
     }
-
     books.forEach(book => {
       const info = book.volumeInfo;
       const img = info.imageLinks?.thumbnail || '';
@@ -41,14 +36,12 @@ $(document).ready(function() {
       `);
     });
 
-    // Add click handlers to bookshelf cards
     $('#bookshelf .book-card').click(function() {
       const bookId = $(this).data('id');
       showBookDetails(bookId);
     });
   }
 
-  // Load bookshelf when the view is shown
   $(document).on('viewShown', '#bookshelf-view', function() {
     loadBookshelf();
   });
