@@ -13,14 +13,12 @@ $(document).ready(function() {
     }
   });
 
-  // Handle Enter key in search
   $('#searchTerm').keypress(function(e) {
     if (e.which === 13) {
       $('#searchBtn').click();
     }
   });
 
-  // Pagination click handler
   $(document).on('click', '.page-btn', function() {
     currentPage = parseInt($(this).data('page'));
     searchBooks(currentQuery, currentPage);
@@ -64,7 +62,6 @@ $(document).ready(function() {
       `);
     });
 
-    // Add click handlers to book cards
     $('.book-card').click(function() {
       const bookId = $(this).data('id');
       showBookDetails(bookId);
